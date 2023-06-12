@@ -10,12 +10,20 @@ import { getStripe } from '@/utils/stripe-client';
 import { useUser } from '@/utils/useUser';
 
 import { Price, ProductWithPrice } from 'types';
+import { CheckIcon } from '@heroicons/react/20/solid';
 
 interface Props {
   products: ProductWithPrice[];
 }
 
 type BillingInterval = 'year' | 'month';
+
+const includedFeatures = [
+  'Private forum access',
+  'Member resources',
+  'Entry to annual conference',
+  'Official member t-shirt'
+];
 
 export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
   const products = await getActiveProductsWithPrices();
@@ -81,15 +89,15 @@ export default function Pricing({ products }: Props) {
     );
 
   return (
-    <section className="bg-white">
-      <div className="max-w-6xl mx-auto py-8 sm:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="sm:flex sm:flex-col sm:align-center">
-          <h1 className="text-4xl font-extrabold text-black sm:text-center sm:text-6xl">
-            Pricing Plans
-          </h1>
-          <p className="mt-5 text-xl text-zinc-600 sm:text-center sm:text-2xl max-w-2xl m-auto">
-            Start building for free, then add a site plan to go live. Account
-            plans unlock additional features.
+    <div className="bg-white py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl sm:text-center sm:flex sm:flex-col sm:align-center">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Simple no-tricks pricing
+          </h2>
+          <p className="mt-6 text-lg leading-8 text-gray-600">
+            Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et
+            quasi iusto modi velit ut non voluptas in. Explicabo id ut laborum.
           </p>
           <div className="relative self-center mt-6 bg-zinc-100 rounded-lg p-0.5 flex sm:mt-8 border border-zinc-100">
             <button
@@ -116,112 +124,86 @@ export default function Pricing({ products }: Props) {
             </button>
           </div>
         </div>
-        <div className="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-4">
-          {products.map((product) => {
-            const price = product?.prices?.find(
-              (price) => price.interval === billingInterval
-            );
-            if (!price) return null;
-            const priceString = new Intl.NumberFormat('en-US', {
-              style: 'currency',
-              currency: price.currency,
-              minimumFractionDigits: 0
-            }).format((price?.unit_amount || 0) / 100);
-            return (
-              <div
-                key={product.id}
-                className={cn(
-                  'rounded-lg shadow-sm divide-y divide-zinc-600 bg-white',
-                  {
-                    'border border-pink-500': subscription
-                      ? product.name === subscription?.prices?.products?.name
-                      : product.name === 'Freelancer'
-                  }
-                )}
-              >
-                <div className="p-6">
-                  <h2 className="text-2xl leading-6 font-semibold text-black">
+
+        {products.map((product) => {
+          const price = product?.prices?.find(
+            (price) => price.interval === billingInterval
+          );
+          if (!price) return null;
+          const priceString = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: price.currency,
+            minimumFractionDigits: 0
+          }).format((price?.unit_amount || 0) / 100);
+          return (
+            <div key={product.id}>
+              <div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
+                <div className="p-8 sm:p-10 lg:flex-auto">
+                  <h3 className="text-2xl font-bold tracking-tight text-gray-900">
                     {product.name}
-                  </h2>
-                  <p className="mt-4 text-zinc-400">{product.description}</p>
-                  <p className="mt-8">
-                    <span className="text-5xl font-extrabold white">
-                      {priceString}
-                    </span>
-                    <span className="text-base font-medium text-zinc-600">
-                      /{billingInterval}
-                    </span>
+                  </h3>
+                  <p className="mt-6 text-base leading-7 text-gray-600">
+                    {product.description}
                   </p>
-                  <Button
-                    variant="slim"
-                    type="button"
-                    disabled={isLoading}
-                    loading={priceIdLoading === price.id}
-                    onClick={() => handleCheckout(price)}
-                    className="mt-8 block w-full rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-zinc-900"
+                  <div className="mt-10 flex items-center gap-x-4">
+                    <h4 className="flex-none text-sm font-semibold leading-6 text-indigo-600">
+                      What's included
+                    </h4>
+                    <div className="h-px flex-auto bg-gray-100" />
+                  </div>
+                  <ul
+                    role="list"
+                    className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6"
                   >
-                    {product.name === subscription?.prices?.products?.name
-                      ? 'Manage'
-                      : 'Subscribe'}
-                  </Button>
+                    {includedFeatures.map((feature) => (
+                      <li key={feature} className="flex gap-x-3">
+                        <CheckIcon
+                          className="h-6 w-5 flex-none text-indigo-600"
+                          aria-hidden="true"
+                        />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
+                  <div className="rounded-2xl bg-gray-50 py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
+                    <div className="mx-auto max-w-xs px-8">
+                      <p className="text-base font-semibold text-gray-600">
+                        Pay once, own it forever
+                      </p>
+                      <p className="mt-6 flex items-baseline justify-center gap-x-2">
+                        <span className="text-5xl font-bold tracking-tight text-gray-900">
+                          {priceString}
+                        </span>
+                        <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">
+                          USD / {billingInterval}
+                        </span>
+                      </p>
+                      <Button
+                        variant="slim"
+                        type="button"
+                        disabled={isLoading}
+                        loading={priceIdLoading === price.id}
+                        onClick={() => handleCheckout(price)}
+                        className="mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                      >
+                        {product.name === subscription?.prices?.products?.name
+                          ? 'Manage'
+                          : 'Subscribe'}
+                      </Button>
+                      <p className="mt-6 text-xs leading-5 text-gray-600">
+                        Invoices and receipts available for easy company
+                        reimbursement
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            );
-          })}
-        </div>
-        <div>
-          <p className="mt-24 text-xs uppercase text-zinc-600 text-center font-bold tracking-[0.3em]">
-            Brought to you by
-          </p>
-          <div className="flex flex-col items-center my-12 space-y-4 sm:mt-8 sm:space-y-0 md:mx-auto md:max-w-2xl sm:grid sm:gap-6 sm:grid-cols-5">
-            <div className="flex items-center justify-start">
-              <a href="https://nextjs.org" aria-label="Next.js Link">
-                <img
-                  src="/nextjs.svg"
-                  alt="Next.js Logo"
-                  className="h-12 text-black"
-                />
-              </a>
             </div>
-            <div className="flex items-center justify-start">
-              <a href="https://vercel.com" aria-label="Vercel.com Link">
-                <img
-                  src="/vercel.svg"
-                  alt="Vercel.com Logo"
-                  className="h-6 text-black"
-                />
-              </a>
-            </div>
-            <div className="flex items-center justify-start">
-              <a href="https://stripe.com" aria-label="stripe.com Link">
-                <img
-                  src="/stripe.svg"
-                  alt="stripe.com Logo"
-                  className="h-12 text-black"
-                />
-              </a>
-            </div>
-            <div className="flex items-center justify-start">
-              <a href="https://supabase.io" aria-label="supabase.io Link">
-                <img
-                  src="/supabase.svg"
-                  alt="supabase.io Logo"
-                  className="h-10 text-black"
-                />
-              </a>
-            </div>
-            <div className="flex items-center justify-start">
-              <a href="https://github.com" aria-label="github.com Link">
-                <img
-                  src="/github.svg"
-                  alt="github.com Logo"
-                  className="h-8 text-black"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
+          );
+        })}
       </div>
-    </section>
+    </div>
   );
 }
