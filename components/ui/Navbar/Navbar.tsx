@@ -24,17 +24,20 @@ const Navbar = () => {
               <Logo />
             </Link>
             <nav className="space-x-2 ml-6 hidden lg:block">
+              <Link href="/dashboard" className={s.link}>
+                Dashboard
+              </Link>
               <Link href="/account" className={s.link}>
                 Account
-              </Link>
-              <Link href="/pricing" className={s.link}>
-                Pricing
               </Link>
               <Link href="/public/product" className={s.link}>
                 Product
               </Link>
               <Link href="/public/features" className={s.link}>
                 Features
+              </Link>
+              <Link href="/pricing" className={s.link}>
+                Pricing
               </Link>
               <Link href="/public/faq" className={s.link}>
                 FAQs

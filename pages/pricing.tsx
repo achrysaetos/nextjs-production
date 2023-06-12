@@ -61,10 +61,10 @@ export default function Pricing({ products }: Props) {
 
   if (!products.length)
     return (
-      <section className="bg-black">
+      <section className="bg-white">
         <div className="max-w-6xl mx-auto py-8 sm:py-24 px-4 sm:px-6 lg:px-8">
           <div className="sm:flex sm:flex-col sm:align-center"></div>
-          <p className="text-6xl font-extrabold text-white sm:text-center sm:text-6xl">
+          <p className="text-6xl font-extrabold text-black sm:text-center sm:text-6xl">
             No subscription pricing plans found. Create them in your{' '}
             <a
               className="text-pink-500 underline"
@@ -81,23 +81,23 @@ export default function Pricing({ products }: Props) {
     );
 
   return (
-    <section className="bg-black">
+    <section className="bg-white">
       <div className="max-w-6xl mx-auto py-8 sm:py-24 px-4 sm:px-6 lg:px-8">
         <div className="sm:flex sm:flex-col sm:align-center">
-          <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
+          <h1 className="text-4xl font-extrabold text-black sm:text-center sm:text-6xl">
             Pricing Plans
           </h1>
-          <p className="mt-5 text-xl text-zinc-200 sm:text-center sm:text-2xl max-w-2xl m-auto">
+          <p className="mt-5 text-xl text-zinc-600 sm:text-center sm:text-2xl max-w-2xl m-auto">
             Start building for free, then add a site plan to go live. Account
             plans unlock additional features.
           </p>
-          <div className="relative self-center mt-6 bg-zinc-900 rounded-lg p-0.5 flex sm:mt-8 border border-zinc-800">
+          <div className="relative self-center mt-6 bg-zinc-100 rounded-lg p-0.5 flex sm:mt-8 border border-zinc-100">
             <button
               onClick={() => setBillingInterval('month')}
               type="button"
               className={`${
                 billingInterval === 'month'
-                  ? 'relative w-1/2 bg-zinc-700 border-zinc-800 shadow-sm text-white'
+                  ? 'relative w-1/2 bg-zinc-600 border-zinc-800 shadow-sm text-white'
                   : 'ml-0.5 relative w-1/2 border border-transparent text-zinc-400'
               } rounded-md m-1 py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 focus:z-10 sm:w-auto sm:px-8`}
             >
@@ -108,7 +108,7 @@ export default function Pricing({ products }: Props) {
               type="button"
               className={`${
                 billingInterval === 'year'
-                  ? 'relative w-1/2 bg-zinc-700 border-zinc-800 shadow-sm text-white'
+                  ? 'relative w-1/2 bg-zinc-600 border-zinc-800 shadow-sm text-white'
                   : 'ml-0.5 relative w-1/2 border border-transparent text-zinc-400'
               } rounded-md m-1 py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 focus:z-10 sm:w-auto sm:px-8`}
             >
@@ -131,7 +131,7 @@ export default function Pricing({ products }: Props) {
               <div
                 key={product.id}
                 className={cn(
-                  'rounded-lg shadow-sm divide-y divide-zinc-600 bg-zinc-900',
+                  'rounded-lg shadow-sm divide-y divide-zinc-600 bg-white',
                   {
                     'border border-pink-500': subscription
                       ? product.name === subscription?.prices?.products?.name
@@ -140,15 +140,15 @@ export default function Pricing({ products }: Props) {
                 )}
               >
                 <div className="p-6">
-                  <h2 className="text-2xl leading-6 font-semibold text-white">
+                  <h2 className="text-2xl leading-6 font-semibold text-black">
                     {product.name}
                   </h2>
-                  <p className="mt-4 text-zinc-300">{product.description}</p>
+                  <p className="mt-4 text-zinc-400">{product.description}</p>
                   <p className="mt-8">
                     <span className="text-5xl font-extrabold white">
                       {priceString}
                     </span>
-                    <span className="text-base font-medium text-zinc-100">
+                    <span className="text-base font-medium text-zinc-600">
                       /{billingInterval}
                     </span>
                   </p>
@@ -170,7 +170,7 @@ export default function Pricing({ products }: Props) {
           })}
         </div>
         <div>
-          <p className="mt-24 text-xs uppercase text-zinc-400 text-center font-bold tracking-[0.3em]">
+          <p className="mt-24 text-xs uppercase text-zinc-600 text-center font-bold tracking-[0.3em]">
             Brought to you by
           </p>
           <div className="flex flex-col items-center my-12 space-y-4 sm:mt-8 sm:space-y-0 md:mx-auto md:max-w-2xl sm:grid sm:gap-6 sm:grid-cols-5">
@@ -179,7 +179,7 @@ export default function Pricing({ products }: Props) {
                 <img
                   src="/nextjs.svg"
                   alt="Next.js Logo"
-                  className="h-12 text-white"
+                  className="h-12 text-black"
                 />
               </a>
             </div>
@@ -188,7 +188,7 @@ export default function Pricing({ products }: Props) {
                 <img
                   src="/vercel.svg"
                   alt="Vercel.com Logo"
-                  className="h-6 text-white"
+                  className="h-6 text-black"
                 />
               </a>
             </div>
@@ -197,7 +197,7 @@ export default function Pricing({ products }: Props) {
                 <img
                   src="/stripe.svg"
                   alt="stripe.com Logo"
-                  className="h-12 text-white"
+                  className="h-12 text-black"
                 />
               </a>
             </div>
@@ -206,7 +206,7 @@ export default function Pricing({ products }: Props) {
                 <img
                   src="/supabase.svg"
                   alt="supabase.io Logo"
-                  className="h-10 text-white"
+                  className="h-10 text-black"
                 />
               </a>
             </div>
@@ -215,7 +215,7 @@ export default function Pricing({ products }: Props) {
                 <img
                   src="/github.svg"
                   alt="github.com Logo"
-                  className="h-8 text-white"
+                  className="h-8 text-black"
                 />
               </a>
             </div>
