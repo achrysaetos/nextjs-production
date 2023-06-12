@@ -1,112 +1,58 @@
-import Link from 'next/link';
-
-import Logo from '@/components/icons/Logo';
-import GitHub from '@/components/icons/GitHub';
-
-import s from './Footer.module.css';
+import Link from "next/link";
 
 export default function Footer() {
-  return (
-    <footer className="mx-auto max-w-[1920px] px-6 bg-zinc-900">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 border-b border-zinc-600 py-12 text-white transition-colors duration-150 bg-zinc-900">
-        <div className="col-span-1 lg:col-span-2">
-          <Link
-            href="/"
-            className="flex flex-initial items-center font-bold md:mr-24"
-          >
-            <span className="rounded-full border border-zinc-700 mr-2">
-              <Logo />
-            </span>
-            <span>ACME</span>
-          </Link>
-        </div>
-        <div className="col-span-1 lg:col-span-2">
-          <ul className="flex flex-initial flex-col md:flex-1">
-            <li className="py-3 md:py-0 md:pb-4">
-              <Link
-                href="/"
-                className="text-white hover:text-zinc-200 transition ease-in-out duration-150"
-              >
-                Home
-              </Link>
-            </li>
-            <li className="py-3 md:py-0 md:pb-4">
-              <Link
-                href="/"
-                className="text-white hover:text-zinc-200 transition ease-in-out duration-150"
-              >
-                About
-              </Link>
-            </li>
-            <li className="py-3 md:py-0 md:pb-4">
-              <Link
-                href="/"
-                className="text-white hover:text-zinc-200 transition ease-in-out duration-150"
-              >
-                Careers
-              </Link>
-            </li>
-            <li className="py-3 md:py-0 md:pb-4">
-              <Link
-                href="/"
-                className="text-white hover:text-zinc-200 transition ease-in-out duration-150"
-              >
-                Blog
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div className="col-span-1 lg:col-span-2">
-          <ul className="flex flex-initial flex-col md:flex-1">
-            <li className="py-3 md:py-0 md:pb-4">
-              <p className="text-white font-bold hover:text-zinc-200 transition ease-in-out duration-150">
-                LEGAL
+    return(
+      <footer className="bg-gray-100">
+        <div className="relative mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 lg:pt-24">
+          <div className="lg:flex lg:items-end lg:justify-between">
+            <div>
+              <div className="flex justify-center text-teal-600 lg:justify-start">
+                <div className="flex lg:flex-1">
+                  <Link href="/" className="-m-1.5 p-1.5">
+                      <span className="sr-only">Your Company</span>
+                      <img
+                        className="h-8 w-auto"
+                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                        alt=""
+                      />
+                  </Link>
+                </div>
+              </div>
+
+              <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500 lg:text-left">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
+                consequuntur amet culpa cum itaque neque.
               </p>
-            </li>
-            <li className="py-3 md:py-0 md:pb-4">
-              <Link
-                href="/"
-                className="text-white hover:text-zinc-200 transition ease-in-out duration-150"
-              >
-                Privacy Policy
-              </Link>
-            </li>
-            <li className="py-3 md:py-0 md:pb-4">
-              <Link
-                href="/"
-                className="text-white hover:text-zinc-200 transition ease-in-out duration-150"
-              >
-                Terms of Use
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div className="col-span-1 lg:col-span-6 flex items-start lg:justify-end text-white">
-          <div className="flex space-x-6 items-center h-10">
-            <a
-              aria-label="Github Repository"
-              href="https://github.com/vercel/nextjs-subscription-payments"
-            >
-              <GitHub />
-            </a>
+            </div>
+
+            <ul className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12">
+              <li>
+                <Link href="/public/about" className="text-gray-700 transition hover:text-gray-700/75">
+                    About
+                </Link>
+              </li>
+              <li>
+                <Link href="/public/support" className="text-gray-700 transition hover:text-gray-700/75">
+                    Support
+                </Link>
+              </li>
+              <li>
+                <Link href="/public/terms" className="text-gray-700 transition hover:text-gray-700/75">
+                    Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link href="/public/privacy" className="text-gray-700 transition hover:text-gray-700/75">
+                    Privacy Policy
+                </Link>
+              </li>
+            </ul>
           </div>
+
+          <p className="mt-12 text-center text-sm text-gray-500 lg:text-right">
+            Copyright &copy; 2022. All rights reserved.
+          </p>
         </div>
-      </div>
-      <div className="py-12 flex flex-col md:flex-row justify-between items-center space-y-4 bg-zinc-900">
-        <div>
-          <span>&copy; 2020 ACME, Inc. All rights reserved.</span>
-        </div>
-        <div className="flex items-center">
-          <span className="text-white">Crafted by</span>
-          <a href="https://vercel.com" aria-label="Vercel.com Link">
-            <img
-              src="/vercel.svg"
-              alt="Vercel.com Logo"
-              className="inline-block h-6 ml-4 text-white"
-            />
-          </a>
-        </div>
-      </div>
-    </footer>
-  );
+      </footer>
+    )
 }

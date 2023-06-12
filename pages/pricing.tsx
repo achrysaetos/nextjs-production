@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
+import { GetStaticPropsResult } from 'next';
 
+import { getActiveProductsWithPrices } from '@/utils/supabase-client';
 import Button from '@/components/ui/Button';
 import { postData } from '@/utils/helpers';
 import { getStripe } from '@/utils/stripe-client';
@@ -14,6 +16,17 @@ interface Props {
 }
 
 type BillingInterval = 'year' | 'month';
+
+export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
+  const products = await getActiveProductsWithPrices();
+
+  return {
+    props: {
+      products
+    },
+    revalidate: 60
+  };
+}
 
 export default function Pricing({ products }: Props) {
   const router = useRouter();
