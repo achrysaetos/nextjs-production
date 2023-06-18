@@ -23,25 +23,38 @@ const Navbar = () => {
             <Link href="/" className={s.logo} aria-label="Logo">
               <Logo />
             </Link>
-            <nav className="space-x-2 ml-6 hidden lg:block">
-              <Link href="/dashboard" className={s.link}>
-                Dashboard
-              </Link>
-              <Link href="/account" className={s.link}>
-                Account
-              </Link>
-              <Link href="/public/product" className={s.link}>
-                Product
-              </Link>
-              <Link href="/public/features" className={s.link}>
-                Features
-              </Link>
-              <Link href="/pricing" className={s.link}>
-                Pricing
-              </Link>
-              <Link href="/public/faq" className={s.link}>
-                FAQs
-              </Link>
+            <nav className="space-x-2 ml-6 hidden md:block">
+              {!user ? (
+                <>
+                  <Link href="/public/features" className={s.link}>
+                    Features
+                  </Link>
+                  <Link href="/public/pricing" className={s.link}>
+                    Pricing
+                  </Link>
+                  <Link href="/public/faq" className={s.link}>
+                    FAQ
+                  </Link>
+                  <Link href="/public/support" className={s.link}>
+                    Support
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link href="/chatbot" className={s.link}>
+                    Chatbot
+                  </Link>
+                  <Link href="/training" className={s.link}>
+                    Training
+                  </Link>
+                  <Link href="/settings" className={s.link}>
+                    Settings
+                  </Link>
+                  <Link href="/account" className={s.link}>
+                    Account
+                  </Link>
+                </>
+              )}
             </nav>
           </div>
 

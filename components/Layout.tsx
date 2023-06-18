@@ -1,9 +1,9 @@
 import { PropsWithChildren } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-
+import { useUser } from '@/utils/useUser';
 import Navbar from '@/components/ui/Navbar';
-import Footer from '@/components/ui/Footer';
+import Banner from '@/components/ui/Banner';
 
 import { PageMeta } from '../types';
 
@@ -12,6 +12,7 @@ interface Props extends PropsWithChildren {
 }
 
 export default function Layout({ children, meta: pageMeta }: Props) {
+  const { isLoading, subscription, userDetails } = useUser();
   const router = useRouter();
   const meta = {
     title: 'Next.js Subscription Starter',
@@ -42,9 +43,9 @@ export default function Layout({ children, meta: pageMeta }: Props) {
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.cardImage} />
       </Head>
+      {userDetails?.user_api && <Banner />}
       <Navbar />
       <main id="skip">{children}</main>
-      <Footer />
     </>
   );
 }

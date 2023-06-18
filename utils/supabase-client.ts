@@ -34,3 +34,37 @@ export const updateUserName = async (user: User, name: string) => {
     })
     .eq('id', user.id);
 };
+
+export const updateUserPrompt = async (user: User, prompt: string) => {
+  await supabase
+    .from('users')
+    .update({
+      user_prompt: prompt
+    })
+    .eq('id', user.id);
+};
+
+export const updateUserApi = async (user: User, api: string) => {
+  await supabase
+    .from('users')
+    .update({
+      user_api: api
+    })
+    .eq('id', user.id);
+};
+
+export const updateUserModel = async (user: User, model: string) => {
+  await supabase
+    .from('users')
+    .update({
+      user_model: model
+    })
+    .eq('id', user.id);
+};
+
+export const deleteUserEmbeddings = async (tblname: string) => {
+  await supabase
+    .from(tblname)
+    .delete()
+    .neq('id', 0)
+};

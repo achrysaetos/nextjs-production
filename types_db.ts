@@ -177,21 +177,33 @@ export interface Database {
           avatar_url: string | null;
           billing_address: Json | null;
           full_name: string | null;
+          user_prompt: string | null;
+          user_api: string | null;
+          user_model: string | null;
           id: string;
+          idx: number;
           payment_method: Json | null;
         };
         Insert: {
           avatar_url?: string | null;
           billing_address?: Json | null;
           full_name?: string | null;
+          user_prompt?: string | null;
+          user_api?: string | null;
+          user_model?: string | null;
           id: string;
+          idx: number;
           payment_method?: Json | null;
         };
         Update: {
           avatar_url?: string | null;
           billing_address?: Json | null;
           full_name?: string | null;
+          user_prompt?: string | null;
+          user_api?: string | null;
+          user_model?: string | null;
           id?: string;
+          idx?: number;
           payment_method?: Json | null;
         };
       };
