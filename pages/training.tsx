@@ -187,18 +187,18 @@ export default function Training({ user }: { user: User }) {
   };
 
   const scrapeAndEmbedFiles = async (files: any) => {
-    const pdfjs = await import('pdfjs-dist/build/pdf');
-    const pdfjsWorker = await import('pdfjs-dist/build/pdf.worker.entry');
-    let fullText = '';
-    for (const file of files) {
-      let doc = await pdfjs.getDocument(file.url).promise;
-      let pageTexts = Array.from({length: doc.numPages}, async (v,i) => {
-          return (await (await doc.getPage(i+1)).getTextContent()).items.map((token:any) => token.str).join(' ');
-      });
-      const text = (await Promise.all(pageTexts)).join('');
-      fullText += text + '\n';
-    }
-    filesEmbed(fullText)
+    // const pdfjs = await import('pdfjs-dist/build/pdf');
+    // const pdfjsWorker = await import('pdfjs-dist/build/pdf.worker.entry');
+    // let fullText = '';
+    // for (const file of files) {
+    //   let doc = await pdfjs.getDocument(file.url).promise;
+    //   let pageTexts = Array.from({length: doc.numPages}, async (v,i) => {
+    //       return (await (await doc.getPage(i+1)).getTextContent()).items.map((token:any) => token.str).join(' ');
+    //   });
+    //   const text = (await Promise.all(pageTexts)).join('');
+    //   fullText += text + '\n';
+    // }
+    // filesEmbed(fullText)
   }
 
   async function handleSubmit(e: any) {
