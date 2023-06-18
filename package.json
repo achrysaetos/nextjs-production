@@ -45,6 +45,7 @@
   "devDependencies": {
     "@types/filestack-react": "^4.0.1",
     "@types/node": "^18.14.4",
+    "@types/pdfjs-dist": "^2.10.378",
     "@types/react": "^18.0.28",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
