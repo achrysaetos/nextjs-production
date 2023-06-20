@@ -67,6 +67,18 @@ export default function Chatbot({ user }: { user: User }) {
   async function handleSubmit(e: any) {
     e.preventDefault();
 
+    if (!subscription && !userDetails?.onTrial) {
+      toast({
+        title: 'Error!',
+        position: 'top-right',
+        description: "Your trial has ended. Sign up for a plan?",
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+      })
+      return;
+    }
+
     if (!query) {
       toast({
         title: 'Error!',
@@ -170,7 +182,7 @@ export default function Chatbot({ user }: { user: User }) {
   // auto-scroll to bottom of messages list
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "auto", block: "end", inline: "nearest"});
+    messagesEndRef.current?.scrollIntoView({ behavior: "instant", block: "end", inline: "nearest"});
   };
   useEffect(scrollToBottom, [messages]);
 
