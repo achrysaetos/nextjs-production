@@ -2,41 +2,41 @@ import Link from "next/link";
 import Footer from '@/components/ui/Footer';
 
 const links = [
-  { name: 'Set up my API key', href: '#' },
-  { name: 'Train my first bot', href: '#' },
-  { name: 'Define the behavior', href: '#' },
+  { name: 'Set up my API key', href: '' },
+  { name: 'Train my first bot', href: '' },
+  { name: 'Define the behavior', href: '' },
 ]
 
 const posts = [
   {
     id: 1,
     title: 'How do I set up my API key?',
-    href: '#',
+    href: '',
     description:
       "This is the first (and only) step you need to start sending messages to your bot. With the official key from OpenAI, you'll have unlimited access to ChatGPT's most powerful models at extremely low rates.",
     date: 'Mar 16, 2020',
     datetime: '2020-03-16',
-    category: { title: 'Getting started', href: '#' },
+    category: { title: 'Getting started', href: '' },
   },
   {
     id: 2,
     title: 'How do I train my first bot?',
-    href: '#',
+    href: '',
     description:
       'You can upload custom data to teach your bot to become the perfect AI assistant. You can upload any pdf file, any website url, or copy and paste any text. For example, you can upload a book, scrape Wikipedia, and so on.',
     date: 'Mar 16, 2020',
     datetime: '2020-03-16',
-    category: { title: 'Getting started', href: '#' },
+    category: { title: 'Getting started', href: '' },
   },
   {
     id: 3,
     title: 'How do I define the behavior of my bot?',
-    href: '#',
+    href: '',
     description:
       "Once you finish training your bot, you can define its default behavior. For example, you might give it personality traits and instructions on how to answer questions (ie. reply like you're Hermione).",
     date: 'Mar 16, 2020',
     datetime: '2020-03-16',
-    category: { title: 'Getting started', href: '#' },
+    category: { title: 'Getting started', href: '' },
   },
 ]
 
@@ -78,7 +78,7 @@ export default function Support() {
           <div className="mx-auto max-w-2xl lg:mx-0">
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">How can we help?</h2>
             <p className="mt-6 text-lg leading-8 text-gray-300">
-              Support or feature requests? Email us at support@chatterup.co. Below, you'll find some helpful links and how-to guides to get you started.
+              Need to close an account? Cancel a subscription? Tips on how to get started? Email us at support@chatterup.co. We're always happy to help.
             </p>
           </div>
           <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
@@ -97,7 +97,7 @@ export default function Support() {
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">From the blog</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Getting started</h2>
             <p className="mt-2 text-lg leading-8 text-gray-600">
               Learn how to use your new custom bot with these tutorials.
             </p>

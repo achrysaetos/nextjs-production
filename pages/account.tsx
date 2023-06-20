@@ -12,7 +12,7 @@ import { useUser } from '@/utils/useUser';
 import { postData } from '@/utils/helpers';
 import { updateUserApi } from '@/utils/supabase-client';
 import { Box, Divider, AbsoluteCenter, Center, useToast } from '@chakra-ui/react';
-import { PaperAirplaneIcon } from '@heroicons/react/24/solid';
+import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon, PaperAirplaneIcon } from '@heroicons/react/24/solid';
 import { SaveContext } from '@/utils/context';
 
 interface Props {
@@ -137,7 +137,7 @@ export default function Account({ user }: { user: User }) {
           </a>
         </div>
         <span className="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">
-          Badge
+          Unlimited
         </span>
       </div>
 
@@ -146,25 +146,25 @@ export default function Account({ user }: { user: User }) {
       <div className="flex flex-col sm:flex-row items-start justify-between">
         <ul className="mt-4 space-y-1 w-1/4 hidden sm:block">
           <li>
-            <Link href="" className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+            <Link href="/account" className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
               Account
             </Link>
           </li>
           <li>
-            <Link href="" className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-              Tutorials
-            </Link>
-          </li>
-          <li>
-            <Link href="" className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+            <Link href="/public/support" className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
               Support
             </Link>
           </li>
           <li>
+            <Link href="/public/faq" className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+              FAQs
+            </Link>
+          </li>
+          {/* <li>
             <Link href="" className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
               Enterprise
             </Link>
-          </li>
+          </li> */}
         </ul>
 
         <div className="hidden sm:block">
@@ -190,15 +190,18 @@ export default function Account({ user }: { user: User }) {
             }
           >
             <div className='text-zinc-600'>
-              Enter your API key to unlock infinite messages! Get your key 
-              <Link href="https://platform.openai.com/account/api-keys" className='text-indigo-600' target="_blank" rel="noopener noreferrer">
+              Enter your API key to unlock infinite messages! You won't be charged:
+            </div>
+            <div className='text-zinc-600 ml-6'>
+              1) Set up a your official OpenAI account by adding a payment method
+              <Link href="https://platform.openai.com/account/billing/overview" className='text-indigo-600' target="_blank" rel="noopener noreferrer">
                 {" "} here.
               </Link>
             </div>
-            <div className='text-zinc-600'>
-              Need more help?
+            <div className='text-zinc-600 ml-6'>
+              2) Create your API key and paste it below. Get your key 
               <Link href="https://platform.openai.com/account/api-keys" className='text-indigo-600' target="_blank" rel="noopener noreferrer">
-                {" "} Show me how to get my key.
+                {" "} here.
               </Link>
             </div>
             <form onSubmit={handleSubmit}>
@@ -246,18 +249,15 @@ export default function Account({ user }: { user: User }) {
             }
           >
             <div className='text-zinc-600'>
-              This is your current plan. See our pricing
-              <Link href="/public/pricing" className='text-indigo-600' target="_blank" rel="noopener noreferrer">
-                {" "} here.
-              </Link>
+              You'll be billed each month at a fixed rate according to your plan, 
             </div>
             <div className='text-zinc-600'>
-              You will be billed according to your plan and OpenAI's
+              plus any messages you send using OpenAI's
               <Link href="https://openai.com/pricing" className='text-indigo-600' target="_blank" rel="noopener noreferrer">
                 {" "} usage rates.
               </Link>
             </div>
-            <div className="text-xl mt-8 mb-4 font-semibold">
+            <div className="text-xl mt-8 mb-4">
               {isLoading ? (
                 <div className="h-12 mb-6">
                   <LoadingDots />
@@ -265,7 +265,11 @@ export default function Account({ user }: { user: User }) {
               ) : subscription ? (
                 `${subscriptionPrice}/${subscription?.prices?.interval}`
               ) : (
-                <Link href="/public/pricing">Choose your plan</Link>
+                <Link href="/public/pricing" className='text-teal-700'>
+                  <ChevronDoubleLeftIcon className='text-xl font-bold leading-6 text-teal-700 inline h-4 w-4 mr-1 mb-1'/>
+                  See available plans 
+                  <ChevronDoubleRightIcon className='text-xl font-bold leading-6 text-teal-700 inline h-4 w-4 ml-1 mb-1'/>
+                </Link>
               )}
             </div>
           </Card>
@@ -276,7 +280,7 @@ export default function Account({ user }: { user: User }) {
         <Box position='relative' marginTop='4'>
           <Divider />
           <AbsoluteCenter bg='white' px='4' fontSize='12' textColor='gray.200'>
-            Powered by ChatGPT. Copyright © 2022 Chatterup.
+            Powered by ChatGPT. Copyright © 2023 Chatterup.
           </AbsoluteCenter>
         </Box>
       </div>
