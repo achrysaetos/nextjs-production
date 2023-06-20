@@ -11,7 +11,8 @@ import { DocumentArrowUpIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link';
 import { ArrowTopRightOnSquareIcon, InformationCircleIcon } from '@heroicons/react/24/outline';
 import { SaveContext } from '@/utils/context';
-import * as pdfjs from 'pdfjs-dist'
+import * as pdfjsLib from 'pdfjs-dist'
+pdfjsLib.GlobalWorkerOptions.workerSrc = require('pdfjs-dist/build/pdf.worker.entry')
 
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   const supabase = createServerSupabaseClient(ctx);
@@ -188,10 +189,9 @@ export default function Training({ user }: { user: User }) {
   };
 
   const scrapeAndEmbedFiles = async (files: any) => {
-    pdfjs.GlobalWorkerOptions.workerSrc = '//cdn.jsdelivr.net/npm/pdfjs-dist@3.7.107/build/pdf.worker.js';
     let fullText = '';
     for (const file of files) {
-      let doc = await pdfjs.getDocument(file.url).promise;
+      let doc = await pdfjsLib.getDocument(file.url).promise;
       let pageTexts = Array.from({length: doc.numPages}, async (v,i) => {
           return (await (await doc.getPage(i+1)).getTextContent()).items.map((token:any) => token.str).join(' ');
       });
