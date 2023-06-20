@@ -14,6 +14,7 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@heroicons/react": "^2.0.18",
+    "@microsoft/fetch-event-source": "^2.0.1",
     "@stripe/stripe-js": "^1.48.0",
     "@supabase/auth-helpers-nextjs": "^0.5.4",
     "@supabase/auth-helpers-react": "^0.3.1",
@@ -44,7 +45,6 @@
   "devDependencies": {
     "@types/filestack-react": "^4.0.1",
     "@types/node": "^18.14.4",
-    "@types/pdfjs-dist": "^2.10.378",
     "@types/react": "^18.0.28",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
