@@ -11,7 +11,7 @@ import { DocumentArrowUpIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link';
 import { ArrowTopRightOnSquareIcon, InformationCircleIcon } from '@heroicons/react/24/outline';
 import { SaveContext } from '@/utils/context';
-import * as pdfjs from 'pdfjs-dist/legacy/build/pdf'
+import * as pdfjs from 'pdfjs-dist'
 
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   const supabase = createServerSupabaseClient(ctx);
