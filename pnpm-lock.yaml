@@ -72,7 +72,7 @@ dependencies:
     specifier: ^13.2.3
     version: 13.2.3(react-dom@18.2.0)(react@18.2.0)
   pdfjs-dist:
-    specifier: ^3.4.120
+    specifier: ^3.0.279
     version: 3.4.120
   react:
     specifier: ^18.2.0
