@@ -19,7 +19,7 @@ const questions = [
   },
   {
     q: 'Do I get unlimited bots and messages?',
-    a: 'Yes, you can use your official ChatGPT key from OpenAI to pay only for what you need. You get unlimited messages when you sign up with either the Standard and Pro plans.',
+    a: 'Yes, you can use your official ChatGPT key from OpenAI to pay only for what you need. You get unlimited messages when you sign up for either the Standard and Pro plans.',
     icon: ArrowPathIcon,
   },
   {
@@ -29,7 +29,7 @@ const questions = [
   },
   {
     q: 'How do I get support or request features?',
-    a: 'You can email us at support@chatterup.co for any support or feature requests. We are always happy to help!',
+    a: 'You can email us at chatterup@proton.me for any support or feature requests. We are always happy to help!',
     icon: FingerPrintIcon,
   },
 ]
@@ -45,7 +45,7 @@ export default function FAQ() {
               Frequently Asked Questions
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              If you can't find your question, email us at support@chatterup.co and we'll get back to you as soon as possible.
+              If you can't find your question, email us at chatterup@proton.me and we'll get back to you as soon as possible.
             </p>
           </div>
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">

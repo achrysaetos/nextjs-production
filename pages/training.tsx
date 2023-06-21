@@ -74,22 +74,33 @@ export default function Training({ user }: { user: User }) {
       const response = await res.json();
       setScrapedText(response.message[0].pageContent)
       setLoading(false);
-      toast({
-        title: 'Trained new bot!',
-        position: 'top-right',
-        description: "All training sessions will now use this bot.",
-        status: 'success',
-        colorScheme: 'teal',
-        duration: 3000,
-        isClosable: true,
-      })
+      if (trainNew)
+        toast({
+          title: 'Trained new bot!',
+          position: 'top-right',
+          description: "All sessions will now use this bot.",
+          status: 'success',
+          colorScheme: 'teal',
+          duration: 3000,
+          isClosable: true,
+        })
+      else 
+        toast({
+          title: 'Trained old bot.',
+          position: 'top-right',
+          description: "Your bot's knowledge has been updated.",
+          status: 'success',
+          colorScheme: 'teal',
+          duration: 3000,
+          isClosable: true,
+        })
       return response;
     } catch (error) {
       setLoading(false);
       toast({
         title: 'Error!',
         position: 'top-right',
-        description: "Please try again or contact support.",
+        description: "Check that your API key is correct.",
         status: 'error',
         duration: 3000,
         isClosable: true,
@@ -119,22 +130,33 @@ export default function Training({ user }: { user: User }) {
       const response = await res.json();
       setScrapedLinks(response.message[0].pageContent)
       setLoading(false);
-      toast({
-        title: 'Trained new bot!',
-        position: 'top-right',
-        description: "All training sessions will now use this bot.",
-        status: 'success',
-        colorScheme: 'teal',
-        duration: 3000,
-        isClosable: true,
-      })
+      if (trainNew)
+        toast({
+          title: 'Trained new bot!',
+          position: 'top-right',
+          description: "All sessions will now use this bot.",
+          status: 'success',
+          colorScheme: 'teal',
+          duration: 3000,
+          isClosable: true,
+        })
+      else 
+        toast({
+          title: 'Trained old bot.',
+          position: 'top-right',
+          description: "Your bot's knowledge has been updated.",
+          status: 'success',
+          colorScheme: 'teal',
+          duration: 3000,
+          isClosable: true,
+        })
       return response;
     } catch (error) {
       setLoading(false);
       toast({
         title: 'Error!',
         position: 'top-right',
-        description: "Make sure your links work and are on separate lines.",
+        description: "Check your API key and links (one per line).",
         status: 'error',
         duration: 3000,
         isClosable: true,
@@ -164,22 +186,33 @@ export default function Training({ user }: { user: User }) {
       const response = await res.json();
       setScrapedFiles(response.message[0].pageContent)
       setLoading(false);
-      toast({
-        title: 'Trained new bot!',
-        position: 'top-right',
-        description: "All training sessions will now use this bot.",
-        status: 'success',
-        colorScheme: 'teal',
-        duration: 3000,
-        isClosable: true,
-      })
+      if (trainNew)
+        toast({
+          title: 'Trained new bot!',
+          position: 'top-right',
+          description: "All sessions will now use this bot.",
+          status: 'success',
+          colorScheme: 'teal',
+          duration: 3000,
+          isClosable: true,
+        })
+      else 
+        toast({
+          title: 'Trained old bot.',
+          position: 'top-right',
+          description: "Your bot's knowledge has been updated.",
+          status: 'success',
+          colorScheme: 'teal',
+          duration: 3000,
+          isClosable: true,
+        })
       return response;
     } catch (error) {
       setLoading(false);
       toast({
         title: 'Error!',
         position: 'top-right',
-        description: "Please try again or contact support.",
+        description: "Check that your API key is correct.",
         status: 'error',
         duration: 3000,
         isClosable: true,
