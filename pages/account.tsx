@@ -190,7 +190,7 @@ export default function Account({ user }: { user: User }) {
             }
           >
             <div className='text-zinc-600'>
-              Enter your API key to unlock infinite messages!
+              Replace with your own API key to unlock infinite messages!
             </div>
             <div className='text-zinc-600 ml-6'>
               1) Add a payment method
@@ -250,14 +250,11 @@ export default function Account({ user }: { user: User }) {
             }
           >
             <div className='text-zinc-600'>
-              You'll be billed each month through OpenAI (not us), according to their
-              <span className='text-zinc-600'>
-                <Link href="https://openai.com/pricing" className='text-indigo-600' target="_blank" rel="noopener noreferrer">
-                  {" "} usage rates.
-                </Link>
-              </span>
-              <br />
-              Currently: $0.0015 (gpt-3.5-turbo) or $0.020 (text-davinci-003) per 750 words!
+              You'll be billed each month at a fixed rate according to your plan (either $10 or $20), plus any messages you send using OpenAI's
+              <Link href="https://openai.com/pricing" className='text-indigo-600' target="_blank" rel="noopener noreferrer">
+                {" "} usage rates
+              </Link>
+              {" "} ($0.0015 or $0.020 per message).
             </div>
             <div className="text-xl mt-8 mb-4">
               {isLoading ? (
