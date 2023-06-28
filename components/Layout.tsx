@@ -16,8 +16,8 @@ export default function Layout({ children, meta: pageMeta }: Props) {
   const router = useRouter();
   const meta = {
     title: 'Chatterup | Customize ChatGPT for your use case',
-    description: 'Brought to you by Vercel, Stripe, Supabase, and OpenAI.',
-    cardImage: '/og.png',
+    description: 'Brought to you by Vercel, Supabase, and OpenAI.',
+    cardImage: '/meta_img.png',
     ...pageMeta
   };
 
