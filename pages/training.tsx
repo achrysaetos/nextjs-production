@@ -490,7 +490,7 @@ export default function Training({ user }: { user: User }) {
           )}
           
           <div className="flex items-center justify-end gap-x-6 mt-4">
-            <Link href="/" className="text-sm font-semibold leading-6 text-gray-900 hover:text-teal-700">
+            <Link href={user ? "/chatbot" : "/"} className="text-sm font-semibold leading-6 text-gray-900 hover:text-teal-700">
               Cancel
             </Link>
             {loading ? (

@@ -89,7 +89,7 @@ export default function Settings({ user }: { user: User }) {
           </a>
         </div>
         <Tooltip 
-          label={model === 'gpt-3.5-turbo' ? "Less powerful, but less expensive" : "More powerful, but more expensive."}
+          label={model === 'gpt-3.5-turbo' ? "Approx. $0.0015 per message sent" : "Approx. $0.0200 per message sent"}
           placement='bottom-end'
           bg='teal'
           w={40}
@@ -151,7 +151,7 @@ export default function Settings({ user }: { user: User }) {
             </span>
           </div>
           <div className="flex items-center justify-end gap-x-6">
-            <Link href="/" className="text-sm font-semibold leading-6 text-gray-900 hover:text-teal-700">
+            <Link href={user ? "/chatbot" : "/"} className="text-sm font-semibold leading-6 text-gray-900 hover:text-teal-700">
               Cancel
             </Link>
             {loading ? (
