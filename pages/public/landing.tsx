@@ -3,7 +3,7 @@ import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon, Serve
 import Footer from "@/components/ui/Footer/Footer";
 import dynamic from 'next/dynamic';
 
-// const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
+const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
 
 const features_section1 = [
   {
@@ -110,11 +110,11 @@ export default function Landing() {
       </section>
 
       {/* Video Section -------------------------------------------------------------------------------------------------------------- */}
-      {/* <section>
+      <section>
         <div className="flex flex-col items-center justify-center m-auto lg:w-3/5 border border-gray-200 rounded-lg shadow">
           <ReactPlayer url='videos/demo.mp4' controls loop playing muted playbackRate={1.5} width="full" height="full"/>
         </div>
-      </section> */}
+      </section>
 
       {/* Features Section 1 -------------------------------------------------------------------------------------------------------------- */}
       <section>
