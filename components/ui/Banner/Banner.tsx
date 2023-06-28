@@ -34,40 +34,29 @@ export default function Banner() {
         />
       </div>
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-        {(!userDetails?.user_api && !user_api) ?
+        {(!subscription && !userDetails?.onTrial) ?
           <p className="text-sm leading-6 text-gray-900">
             <strong className="font-semibold">
-              UNLIMITED free trial
+              Your trial has ended
             </strong>
             <svg viewBox="0 0 2 2" className="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true">
               <circle cx={1} cy={1} r={1} />
             </svg>
-            Add your official ChatGPT key from OpenAI to unlock infinite messages!
+            Would you like to sign up for a new unlimited plan?
           </p>
         :
-          (!subscription && !userDetails?.onTrial) ?
-            <p className="text-sm leading-6 text-gray-900">
-              <strong className="font-semibold">
-                Your trial has ended
-              </strong>
-              <svg viewBox="0 0 2 2" className="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true">
-                <circle cx={1} cy={1} r={1} />
-              </svg>
-              Would you like to sign up for a new unlimited plan?
-            </p>
-          :
-            <p className="text-sm leading-6 text-gray-900">
-              <strong className="font-semibold">
-                Congrats!
-              </strong>
-              <svg viewBox="0 0 2 2" className="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true">
-                <circle cx={1} cy={1} r={1} />
-              </svg>
-              It's time to train your bot. Once your bot is trained, you can start chatting with it.
-            </p>
+          <p className="text-sm leading-6 text-gray-900">
+            <strong className="font-semibold">
+              Congrats!
+            </strong>
+            <svg viewBox="0 0 2 2" className="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true">
+              <circle cx={1} cy={1} r={1} />
+            </svg>
+            It's time to train your bot. Once your bot is trained, you can start chatting with it.
+          </p>
         }
         <Link
-          href={((!userDetails?.user_api && !user_api) || (!subscription && !userDetails?.onTrial)) ? "/account" : "/training"}
+          href={(!subscription && !userDetails?.onTrial) ? "/public/pricing" : "/training"}
           className="flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
         >
           Show me <span aria-hidden="true">&rarr;</span>

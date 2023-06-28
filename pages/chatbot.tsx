@@ -73,7 +73,7 @@ export default function Chatbot({ user }: { user: User }) {
         position: 'top-right',
         description: "Your trial has ended. Sign up for a plan?",
         status: 'error',
-        duration: 3000,
+        duration: 5000,
         isClosable: true,
       })
       return;

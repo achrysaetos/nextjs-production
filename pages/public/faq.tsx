@@ -8,6 +8,11 @@ const questions = [
     icon: CloudArrowUpIcon,
   },
   {
+    q: 'How does pricing work?',
+    a: "You'll be billed each month at a fixed rate according to your plan (either $10 or $20), plus any messages you send through your ChatGPT key (at approx. $0.0015 per message).",
+    icon: LockClosedIcon,
+  },
+  {
     q: 'Can I customize my chatbot?',
     a: "Yes, you can define the default behavior of your bot and give it personality traits and instructions on how to answer questions (ie. reply like you're Hermione).",
     icon: LockClosedIcon,
@@ -15,11 +20,6 @@ const questions = [
   {
     q: 'What kind of data can I upload?',
     a: 'You can upload any pdf file, any website url, or copy and paste any text. For example, you can upload a book, scrape Wikipedia, and so on. The possibilities are endless!',
-    icon: ArrowPathIcon,
-  },
-  {
-    q: 'Do I get unlimited bots and messages?',
-    a: 'Yes, you can use your official ChatGPT key from OpenAI to pay only for what you need, at either $0.0015 or $0.020 per 750 words! You get unlimited messages right when you sign up.',
     icon: ArrowPathIcon,
   },
   {

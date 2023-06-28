@@ -95,20 +95,19 @@ export default function Pricing({ products }: Props) {
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl sm:text-center sm:flex sm:flex-col sm:align-center">
-            <h2 className="text-base font-semibold leading-7 text-indigo-600">Be Free</h2>
+            <h2 className="text-base font-semibold leading-7 text-indigo-600">Powerful options, low rates</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              No subscriptions. Just messages.
+              Pay only for what you use. No more.
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Say goodbye to monthly subscription fees. Only pay for the messages you send through OpenAI's
+              Pricing that's tailored for your needs. You'll be billed each month at a fixed rate according to your plan, plus any messages you send using OpenAI's
               <span>
                 <Link href="https://openai.com/pricing" className='text-indigo-600' target="_blank" rel="noopener noreferrer">
-                  {' '} usage rates: {' '}
+                  {' '} usage rates.
                 </Link>
               </span>
-              hundreds of messages for just a dollar.
             </p>
-            {/* <div className="relative self-center mt-6 bg-zinc-100 rounded-lg p-0.5 flex sm:mt-8 border border-zinc-100">
+            <div className="relative self-center mt-6 bg-zinc-100 rounded-lg p-0.5 flex sm:mt-8 border border-zinc-100">
               <button
                 onClick={() => setBillingInterval('month')}
                 type="button"
@@ -131,10 +130,10 @@ export default function Pricing({ products }: Props) {
               >
                 Yearly billing
               </button>
-            </div> */}
+            </div>
           </div>
 
-          {/* {products.map((product) => {
+          {products.map((product) => {
             const price = product?.prices?.find(
               (price) => price.interval === billingInterval
             );
@@ -145,14 +144,14 @@ export default function Pricing({ products }: Props) {
               minimumFractionDigits: 0
             }).format((price?.unit_amount || 0) / 100);
             return (
-              <div key={product.id}> */}
+              <div key={product.id}>
                 <div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
                   <div className="p-8 sm:p-10 lg:flex-auto">
                     <h3 className="text-2xl font-bold tracking-tight text-gray-900">
-                      UNLIMITED Pro
+                      {product.name}
                     </h3>
                     <p className="mt-6 text-base leading-7 text-gray-600">
-                      No monthly subscription fee. Unlock unlimited messages with OpenAI's official ChatGPT key: $0.0015 (gpt-3.5-turbo) or $0.020 (text-davinci-003) per 750 words!
+                      {product.description}
                     </p>
                     <div className="mt-10 flex items-center gap-x-4">
                       <h4 className="flex-none text-sm font-semibold leading-6 text-indigo-600">
@@ -179,22 +178,17 @@ export default function Pricing({ products }: Props) {
                     <div className="rounded-2xl bg-gray-50 py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
                       <div className="mx-auto max-w-xs px-8">
                         <p className="text-base font-semibold text-gray-600">
-                          No subscription required.
+                          UNLIMITED 1-day free trial, then
                         </p>
                         <p className="mt-6 flex items-baseline justify-center gap-x-2">
                           <span className="text-5xl font-bold tracking-tight text-gray-900">
-                            FREE
+                            {priceString}
                           </span>
-                          {/* <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">
+                          <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">
                             USD / {billingInterval}
-                          </span> */}
+                          </span>
                         </p>
-
-                        <Link href="/signin" className="mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                          Get Started
-                        </Link>
-
-                        {/* <Button
+                        <Button
                           variant="slim"
                           type="button"
                           disabled={isLoading}
@@ -205,17 +199,17 @@ export default function Pricing({ products }: Props) {
                           {product.name === subscription?.prices?.products?.name
                             ? 'Manage'
                             : 'Subscribe'}
-                        </Button> */}
+                        </Button>
                         <p className="mt-6 text-xs leading-5 text-gray-600">
-                          OpenAI's usage rates will still apply.
+                          Invoices and receipts available. Secure payments through Stripe.
                         </p>
                       </div>
                     </div>
                   </div>
                 </div>
-              {/* </div>
+              </div>
             );
-          })} */}
+          })}
         </div>
       </div>
 

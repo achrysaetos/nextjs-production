@@ -17,8 +17,8 @@ const features_section1 = [
     icon: LockClosedIcon,
   },
   {
-    name: "Subscription-free.",
-    description: "You're in control. Don't pay for something that should be free. This is AI for the people.",
+    name: "Unlimited potential.",
+    description: "Utilize state-of-the-art GPT models. Teach your bot to become an expert in any field, then use its knowledge.",
     icon: ServerIcon,
   },
 ];
@@ -68,8 +68,8 @@ export default function Landing() {
             <div className="mx-auto max-w-2xl py-32 pt-48">
               <div className="hidden sm:mb-8 sm:flex sm:justify-center">
                 <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                  Announcing UNLIMITED messages, no subscription required.{" "}
-                  <Link href="/public/pricing" className="font-semibold text-indigo-600">
+                  Announcing UNLIMITED messages, no credit card required.{" "}
+                  <Link href="/signin" className="font-semibold text-indigo-600">
                       <span className="absolute inset-0" aria-hidden="true" />
                       Get started <span aria-hidden="true">&rarr;</span>
                   </Link>
@@ -81,13 +81,13 @@ export default function Landing() {
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-600">
                   Teach ChatGPT anything using YOUR data and documents. UNLIMITED messages. 
-                  <span className="font-semibold text-indigo-600"> No subscription required. EVER.</span> 
+                  <span className="font-semibold text-indigo-600"> 1-day free trial. No credit card required.</span> 
                 </p>
                 <div className="mt-10 flex items-center justify-center gap-x-6">
-                  <Link href="/public/pricing" className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                  <Link href="/signin" className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                       Get started
                   </Link>
-                  <Link href="/public/features" className="text-sm font-semibold leading-6 text-gray-900">
+                  <Link href="/public/pricing" className="text-sm font-semibold leading-6 text-gray-900">
                       Learn more <span aria-hidden="true">→</span>
                   </Link>
                 </div>
@@ -131,7 +131,6 @@ export default function Landing() {
                   </p>
                   <p className="mt-6 text-lg leading-8 text-gray-600">
                     Teach ChatGPT anything. Let it read articles, books, essays, papers, reports, and manuscripts. Then ask it anything. Summarize a book? Advise you on a topic? Write a document? Your custom AI expert can do it all. 
-                    <span className="font-semibold text-indigo-600"> No subscription required.</span>
                   </p>
                   <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
                     {features_section1.map((feature) => (
@@ -220,16 +219,16 @@ export default function Landing() {
               </svg>
               <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
                 <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                  No more subscriptions. Unlimited messages.
+                  UNLIMITED 1-day free trial. <br/> No credit card required.
                 </h2>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Introducing the first subscription-less chat service. Unlimited messages and chatbots with your official ChatGPT key from OpenAI.
+                  Introducing a new pricing system tailored for your needs. Unlimited messages and chatbots with your official ChatGPT key from OpenAI.
                 </p>
                 <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
-                  <Link href="/public/pricing" className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                  <Link href="/signin" className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
                       Get started
                   </Link>
-                  <Link href="/public/features" className="text-sm font-semibold leading-6 text-white">
+                  <Link href="/public/pricing" className="text-sm font-semibold leading-6 text-white">
                       Learn more <span aria-hidden="true">→</span>
                   </Link>
                 </div>
