@@ -37,7 +37,7 @@ const CreateCheckoutSession: NextApiHandler = async (req, res) => {
           metadata
         },
         success_url: `https://www.chatterup.app/account`,
-        cancel_url: `${getURL()}/`
+        cancel_url: `https://www.chatterup.app/public/pricing`
       });
 
       return res.status(200).json({ sessionId: session.id });
