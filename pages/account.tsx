@@ -250,7 +250,7 @@ export default function Account({ user }: { user: User }) {
             }
           >
             <div className='text-zinc-600'>
-              You'll be billed each month at a fixed rate according to your plan (either $10 or $20), plus any messages you send using OpenAI's
+              You'll be billed each month at a fixed rate according to your plan, plus any messages you send using OpenAI's
               <Link href="https://openai.com/pricing" className='text-indigo-600' target="_blank" rel="noopener noreferrer">
                 {" "} usage rates
               </Link>
