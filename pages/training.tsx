@@ -39,8 +39,8 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
 export default function Training({ user }: { user: User }) {
   const [loading, setLoading] = useState(false);
   const { isLoading, subscription, userDetails } = useUser();
-  const [tab, setTab] = useState<string>('text'); // text, links, files
-  const [trainNew, setTrainNew] = useState<boolean>(false);
+  const [tab, setTab] = useState<string>('links'); // text, links, files
+  const [trainNew, setTrainNew] = useState<boolean>(true);
   
   const [text, setText] = useState<string>('');
   const [scrapedText, setScrapedText] = useState<string>('');
@@ -271,14 +271,14 @@ export default function Training({ user }: { user: User }) {
     <div className="container mx-auto w-3/4">
       <div className="flex items-center justify-between">
         <div className="tabs">
-          <a className={tab === 'text' ? "tab tab-lifted tab-active text-teal-700 font-semibold" : "tab tab-lifted hover:text-teal-700 font-semibold"} onClick={() => setTab('text')} >
-            Upload Text
-          </a>
           <a className={tab === 'links' ? "tab tab-lifted tab-active text-teal-700 font-semibold" : "tab tab-lifted hover:text-teal-700 font-semibold"} onClick={() => setTab('links')} >
-            Upload Links
+            Upload URLs
           </a>
           <a className={tab === 'files' ? "tab tab-lifted tab-active text-teal-700 font-semibold" : "tab tab-lifted hover:text-teal-700 font-semibold"} onClick={() => setTab('files')} >
-            Upload Files
+            Upload PDFs
+          </a>
+          <a className={tab === 'text' ? "tab tab-lifted tab-active text-teal-700 font-semibold" : "tab tab-lifted hover:text-teal-700 font-semibold"} onClick={() => setTab('text')} >
+            Upload Text
           </a>
         </div>
         <Tooltip 
@@ -344,7 +344,7 @@ export default function Training({ user }: { user: User }) {
                         <DocumentArrowUpIcon className="mx-auto h-12 w-12 text-gray-300" aria-hidden="true" />
                         <div className="mt-4 flex text-sm leading-6 text-gray-600">
                           <label className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-700 focus-within:outline-none focus-within:ring-2 focus-within:ring-teal-700 focus-within:ring-offset-2 hover:text-teal-700">
-                            <span onClick={() => setFilePicker(!filePicker)}>Upload a file</span>
+                            <span onClick={() => setFilePicker(!filePicker)}>Upload files</span>
                           </label>
                           <p className="pl-1">(nothing here yet)</p>
                         </div>
@@ -428,7 +428,7 @@ export default function Training({ user }: { user: User }) {
             <div>
               {scrapedLinks === '' ? 
                 <p className="mt-3 text-sm leading-6 text-gray-600">
-                  Upload website urls, one per line.
+                  Paste website urls, one per line.
                 </p>
               :
                 <>
