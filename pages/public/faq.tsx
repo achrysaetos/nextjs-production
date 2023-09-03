@@ -9,7 +9,7 @@ const questions = [
   },
   {
     q: 'How does pricing work?',
-    a: "You'll be billed each month at a fixed rate according to your plan (either $10 or $20), plus any messages you send through your ChatGPT key (at approx. $0.0015 per message).",
+    a: "You'll be billed each month at a fixed rate according to your plan, plus any messages you send through your ChatGPT key (at approx. $0.0015 per message).",
     icon: LockClosedIcon,
   },
   {

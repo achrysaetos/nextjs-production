@@ -39,8 +39,8 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
 export default function Training({ user }: { user: User }) {
   const [loading, setLoading] = useState(false);
   const { isLoading, subscription, userDetails } = useUser();
-  const [tab, setTab] = useState<string>('text'); // text, links, files
-  const [trainNew, setTrainNew] = useState<boolean>(false);
+  const [tab, setTab] = useState<string>('links'); // text, links, files
+  const [trainNew, setTrainNew] = useState<boolean>(true);
   
   const [text, setText] = useState<string>('');
   const [scrapedText, setScrapedText] = useState<string>('');
@@ -271,14 +271,14 @@ export default function Training({ user }: { user: User }) {
     <div className="container mx-auto w-3/4">
       <div className="flex items-center justify-between">
         <div className="tabs">
-          <a className={tab === 'text' ? "tab tab-lifted tab-active text-teal-700 font-semibold" : "tab tab-lifted hover:text-teal-700 font-semibold"} onClick={() => setTab('text')} >
-            Upload Text
-          </a>
           <a className={tab === 'links' ? "tab tab-lifted tab-active text-teal-700 font-semibold" : "tab tab-lifted hover:text-teal-700 font-semibold"} onClick={() => setTab('links')} >
-            Upload Links
+            Upload URLs
           </a>
           <a className={tab === 'files' ? "tab tab-lifted tab-active text-teal-700 font-semibold" : "tab tab-lifted hover:text-teal-700 font-semibold"} onClick={() => setTab('files')} >
-            Upload Files
+            Upload PDFs
+          </a>
+          <a className={tab === 'text' ? "tab tab-lifted tab-active text-teal-700 font-semibold" : "tab tab-lifted hover:text-teal-700 font-semibold"} onClick={() => setTab('text')} >
+            Upload Text
           </a>
         </div>
         <Tooltip 
@@ -344,7 +344,7 @@ export default function Training({ user }: { user: User }) {
                         <DocumentArrowUpIcon className="mx-auto h-12 w-12 text-gray-300" aria-hidden="true" />
                         <div className="mt-4 flex text-sm leading-6 text-gray-600">
                           <label className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-700 focus-within:outline-none focus-within:ring-2 focus-within:ring-teal-700 focus-within:ring-offset-2 hover:text-teal-700">
-                            <span onClick={() => setFilePicker(!filePicker)}>Upload a file</span>
+                            <span onClick={() => setFilePicker(!filePicker)}>Upload files</span>
                           </label>
                           <p className="pl-1">(nothing here yet)</p>
                         </div>
@@ -395,14 +395,19 @@ export default function Training({ user }: { user: User }) {
           {tab === 'text' && 
             <div>
               {scrapedText === '' ? 
-                <p className="mt-3 text-sm leading-6 text-gray-600">
-                  Copy and paste text from any source.
-                </p>
+                <span>
+                  <p className="mt-3 text-sm leading-6 text-gray-600">
+                    Copy and paste text from any source.
+                  </p>
+                  <Link href='https://www.youtube.com/watch?v=4Jg46H4y63I' className="mt-3 text-sm leading-6 text-teal-700 font-semibold" target="_blank" rel="noopener noreferrer">
+                    See tutorial video
+                  </Link>
+                </span>
               :
                 <>
                   <div className="flex items-center">
                     <p className="mt-3 text-sm leading-6 text-gray-600">
-                      The data from your text upload.
+                      The data from your text upload. Go to your chatbot to ask questions.
                     </p>
                     <Tooltip 
                       label={"We've formatted everything for you. Feel free to add new sources."}
@@ -414,7 +419,7 @@ export default function Training({ user }: { user: User }) {
                     </Tooltip>
                   </div>
                   <span 
-                    onClick={() => {setText(''); setScrapedText('')}}
+                    onClick={() => {setText(''); setScrapedText(''); setTrainNew(false)}}
                     className='text-sm leading-6 cursor-pointer text-teal-700 font-semibold select-none'
                   >
                     Click to add new text.
@@ -427,14 +432,19 @@ export default function Training({ user }: { user: User }) {
           {tab === 'links' &&
             <div>
               {scrapedLinks === '' ? 
-                <p className="mt-3 text-sm leading-6 text-gray-600">
-                  Upload website urls, one per line.
-                </p>
+                <span>
+                  <p className="mt-3 text-sm leading-6 text-gray-600">
+                    Paste website urls, one per line.
+                  </p>
+                  <Link href='https://www.youtube.com/watch?v=4Jg46H4y63I' className="mt-3 text-sm leading-6 text-teal-700 font-semibold" target="_blank" rel="noopener noreferrer">
+                    See tutorial video
+                  </Link>
+                </span>
               :
                 <>
                   <div className="flex items-center">
                     <p className="mt-3 text-sm leading-6 text-gray-600">
-                      The data from your link uploads.
+                      The data from your link uploads. Go to your chatbot to ask questions.
                     </p>
                     <Tooltip 
                       label={"Make sure that your links are on separate lines and can be scraped."}
@@ -446,7 +456,7 @@ export default function Training({ user }: { user: User }) {
                     </Tooltip>
                   </div>
                   <span 
-                    onClick={() => {setLinks(''); setScrapedLinks('')}}
+                    onClick={() => {setLinks(''); setScrapedLinks(''); setTrainNew(false)}}
                     className='text-sm leading-6 cursor-pointer text-teal-700 font-semibold select-none'
                   >
                     Click to add new links.
@@ -457,19 +467,29 @@ export default function Training({ user }: { user: User }) {
           }
 
           {tab === 'files' && (!files ? 
-            <p className="mt-3 text-sm leading-6 text-gray-600">
-              Upload any number of pdf files, up to 20mb each.
-            </p>
-          :
-            scrapedFiles === '' ?
+            <span>
               <p className="mt-3 text-sm leading-6 text-gray-600">
                 Upload any number of pdf files, up to 20mb each.
               </p>
+              <Link href='https://www.youtube.com/watch?v=4Jg46H4y63I' className="mt-3 text-sm leading-6 text-teal-700 font-semibold" target="_blank" rel="noopener noreferrer">
+                See tutorial video
+              </Link>
+            </span>
+          :
+            scrapedFiles === '' ?
+              <span>
+                <p className="mt-3 text-sm leading-6 text-gray-600">
+                  Upload any number of pdf files, up to 20mb each.
+                </p>
+                <Link href='https://www.youtube.com/watch?v=4Jg46H4y63I' className="mt-3 text-sm leading-6 text-teal-700 font-semibold" target="_blank" rel="noopener noreferrer">
+                  See tutorial video
+                </Link>
+              </span>
             :
               <div>
                 <div className="flex items-center">
                   <p className="mt-3 text-sm leading-6 text-gray-600">
-                    The data from your file uploads.
+                    The data from your file uploads. Go to your chatbot to ask questions.
                   </p>
                   <Tooltip 
                     label={"Make sure that the text from your pdf can be highlighted."}
@@ -481,7 +501,7 @@ export default function Training({ user }: { user: User }) {
                   </Tooltip>
                 </div>
                 <span 
-                  onClick={() => {setFiles(''); setScrapedFiles('')}}
+                  onClick={() => {setFiles(''); setScrapedFiles(''); setTrainNew(false)}}
                   className='text-sm leading-6 cursor-pointer text-teal-700 font-semibold select-none'
                 >
                   Click to add new files.

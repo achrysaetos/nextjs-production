@@ -102,9 +102,9 @@ export default function Settings({ user }: { user: User }) {
           <option value='gpt-3.5-turbo'>
             gpt-3.5-turbo
           </option>
-          <option value='text-davinci-003'>
+          {/* <option value='text-davinci-003'>
             text-davinci-003
-          </option>
+          </option> */}
         </select>
         </Tooltip>
       </div>
