@@ -160,11 +160,11 @@ export default function Chatbot({ user }: { user: User }) {
       setError('An error occurred while fetching the data. Please try again.');
       console.log('error', error);
       toast({
-        title: 'Error!',
+        title: 'No results',
         position: 'top-right',
-        description: "Please refresh the page and try again.",
-        status: 'error',
-        duration: 3000,
+        description: "Please try another query.",
+        status: 'info',
+        duration: 5000,
         isClosable: true,
       })
     }

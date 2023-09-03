@@ -395,14 +395,19 @@ export default function Training({ user }: { user: User }) {
           {tab === 'text' && 
             <div>
               {scrapedText === '' ? 
-                <p className="mt-3 text-sm leading-6 text-gray-600">
-                  Copy and paste text from any source.
-                </p>
+                <span>
+                  <p className="mt-3 text-sm leading-6 text-gray-600">
+                    Copy and paste text from any source.
+                  </p>
+                  <Link href='https://www.youtube.com/watch?v=4Jg46H4y63I' className="mt-3 text-sm leading-6 text-teal-700 font-semibold" target="_blank" rel="noopener noreferrer">
+                    See tutorial video
+                  </Link>
+                </span>
               :
                 <>
                   <div className="flex items-center">
                     <p className="mt-3 text-sm leading-6 text-gray-600">
-                      The data from your text upload.
+                      The data from your text upload. Go to your chatbot to ask questions.
                     </p>
                     <Tooltip 
                       label={"We've formatted everything for you. Feel free to add new sources."}
@@ -414,7 +419,7 @@ export default function Training({ user }: { user: User }) {
                     </Tooltip>
                   </div>
                   <span 
-                    onClick={() => {setText(''); setScrapedText('')}}
+                    onClick={() => {setText(''); setScrapedText(''); setTrainNew(false)}}
                     className='text-sm leading-6 cursor-pointer text-teal-700 font-semibold select-none'
                   >
                     Click to add new text.
@@ -427,14 +432,19 @@ export default function Training({ user }: { user: User }) {
           {tab === 'links' &&
             <div>
               {scrapedLinks === '' ? 
-                <p className="mt-3 text-sm leading-6 text-gray-600">
-                  Paste website urls, one per line.
-                </p>
+                <span>
+                  <p className="mt-3 text-sm leading-6 text-gray-600">
+                    Paste website urls, one per line.
+                  </p>
+                  <Link href='https://www.youtube.com/watch?v=4Jg46H4y63I' className="mt-3 text-sm leading-6 text-teal-700 font-semibold" target="_blank" rel="noopener noreferrer">
+                    See tutorial video
+                  </Link>
+                </span>
               :
                 <>
                   <div className="flex items-center">
                     <p className="mt-3 text-sm leading-6 text-gray-600">
-                      The data from your link uploads.
+                      The data from your link uploads. Go to your chatbot to ask questions.
                     </p>
                     <Tooltip 
                       label={"Make sure that your links are on separate lines and can be scraped."}
@@ -446,7 +456,7 @@ export default function Training({ user }: { user: User }) {
                     </Tooltip>
                   </div>
                   <span 
-                    onClick={() => {setLinks(''); setScrapedLinks('')}}
+                    onClick={() => {setLinks(''); setScrapedLinks(''); setTrainNew(false)}}
                     className='text-sm leading-6 cursor-pointer text-teal-700 font-semibold select-none'
                   >
                     Click to add new links.
@@ -457,19 +467,29 @@ export default function Training({ user }: { user: User }) {
           }
 
           {tab === 'files' && (!files ? 
-            <p className="mt-3 text-sm leading-6 text-gray-600">
-              Upload any number of pdf files, up to 20mb each.
-            </p>
-          :
-            scrapedFiles === '' ?
+            <span>
               <p className="mt-3 text-sm leading-6 text-gray-600">
                 Upload any number of pdf files, up to 20mb each.
               </p>
+              <Link href='https://www.youtube.com/watch?v=4Jg46H4y63I' className="mt-3 text-sm leading-6 text-teal-700 font-semibold" target="_blank" rel="noopener noreferrer">
+                See tutorial video
+              </Link>
+            </span>
+          :
+            scrapedFiles === '' ?
+              <span>
+                <p className="mt-3 text-sm leading-6 text-gray-600">
+                  Upload any number of pdf files, up to 20mb each.
+                </p>
+                <Link href='https://www.youtube.com/watch?v=4Jg46H4y63I' className="mt-3 text-sm leading-6 text-teal-700 font-semibold" target="_blank" rel="noopener noreferrer">
+                  See tutorial video
+                </Link>
+              </span>
             :
               <div>
                 <div className="flex items-center">
                   <p className="mt-3 text-sm leading-6 text-gray-600">
-                    The data from your file uploads.
+                    The data from your file uploads. Go to your chatbot to ask questions.
                   </p>
                   <Tooltip 
                     label={"Make sure that the text from your pdf can be highlighted."}
@@ -481,7 +501,7 @@ export default function Training({ user }: { user: User }) {
                   </Tooltip>
                 </div>
                 <span 
-                  onClick={() => {setFiles(''); setScrapedFiles('')}}
+                  onClick={() => {setFiles(''); setScrapedFiles(''); setTrainNew(false)}}
                   className='text-sm leading-6 cursor-pointer text-teal-700 font-semibold select-none'
                 >
                   Click to add new files.
