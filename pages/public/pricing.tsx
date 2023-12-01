@@ -190,7 +190,7 @@ export default function Pricing({ products }: Props) {
             </div>
           </div>
 
-          {products.map((product) => {
+          {/* {products.map((product) => {
             const price = product?.prices?.find(
               (price) => price.interval === billingInterval
             );
@@ -266,7 +266,7 @@ export default function Pricing({ products }: Props) {
                 </div>
               </div>
             );
-          })}
+          })} */}
         </div>
       </div>
 
